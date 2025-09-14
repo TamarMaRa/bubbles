@@ -1,3 +1,5 @@
+import math
+
 import consts
 import Bubble
 import random
@@ -181,5 +183,22 @@ def find_isolated_bubbles():
 # ---------------------------------your code-----------------------------------
 # -----------------------------------------------------------------------------
 def find_bubble_location_in_grid(bullet_bubble):
-    # TODO: implement
-    pass
+    closest_location = None
+    closest_distance = None
+
+    for row in range(len(bubbles_grid)):
+        for col in range(len(bubbles_grid[row])):
+            bubble = bubbles_grid[row][col]
+            if bubble["color"] == consts.NO_BUBBLE:
+                dx = bullet_bubble["center_x"] - bubble["center_x"]
+                dy = bullet_bubble["center_y"] - bubble["center_y"]
+                distance = math.sqrt(dx * dx + dy * dy)
+
+                #what's the closest distance
+                if closest_distance is None:
+                    closest_distance = distance
+                    closest_location = (row, col)
+                elif distance < closest_distance:
+                    closest_distance = distance
+                    closest_location = (row, col)
+    return closest_location
