@@ -23,7 +23,7 @@ def calc_center_x(col, row, row_start):
 
 def calc_center_y(row):
     return row * (consts.BUBBLE_RADIUS * 2 - consts.ROWS_OVERLAP) + \
-           consts.BUBBLE_RADIUS
+        consts.BUBBLE_RADIUS
 
 
 def move_in_direction(bubble, direction):
@@ -33,8 +33,8 @@ def move_in_direction(bubble, direction):
 
 def is_colliding_with_wall(bullet_bubble):
     return bullet_bubble["center_x"] - consts.BUBBLE_RADIUS <= 0 or \
-           bullet_bubble[
-               "center_x"] + consts.BUBBLE_RADIUS >= consts.WINDOW_WIDTH
+        bullet_bubble[
+            "center_x"] + consts.BUBBLE_RADIUS >= consts.WINDOW_WIDTH
 
 
 def calc_direction(angle):
@@ -86,11 +86,11 @@ def is_isolated_inner(bubbles_grid, bubble_location, locations_checked):
 # -----------------------------------------------------------------------------
 
 def should_stop(bubbles_grid, bullet_bubble):
-    #ceiling collision
+    # ceiling collision
     if bullet_bubble["center_y"] - bullet_bubble["radius"] <= 0:
         return True
 
-    #bubble collision
+    # bubble collision
     for row in bubbles_grid:
         for bubble in row:
             if bubble["color"] != consts.NO_BUBBLE:

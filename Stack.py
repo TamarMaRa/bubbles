@@ -41,12 +41,13 @@ def draw():
     for bubble in stack:
         Screen.draw_bubble(bubble)
 
+
 # -----------------------------------------------------------------------------
 # ---------------------------------your code-----------------------------------
 # -----------------------------------------------------------------------------
 
 
-def get_stack_colors(c_stack,bubble_colors_list):
+def get_stack_colors(c_stack, bubble_colors_list):
     stack_colors = []
 
     for bubble in range(len(c_stack)):

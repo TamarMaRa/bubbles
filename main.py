@@ -39,14 +39,14 @@ def main():
                 state["is_bubble_fired"] = False
 
                 new_bubble_location = BubblesGrid.find_bubble_location_in_grid(
-                        state["bullet_bubble"])
+                    state["bullet_bubble"])
                 BubblesGrid.put_bubble_in_grid(state["bullet_bubble"],
                                                new_bubble_location)
 
                 same_color_cluster = BubblesGrid.get_same_color_cluster(
-                        new_bubble_location,
-                        state["bullet_bubble"]["color"],
-                        [])
+                    new_bubble_location,
+                    state["bullet_bubble"]["color"],
+                    [])
 
                 if BubblesGrid.should_bubbles_pop(same_color_cluster):
                     state["bubbles_popping"] = \
@@ -128,26 +128,14 @@ def remove_isolated_bubbles():
 # -----------------------------------------------------------------------------
 
 def remove_extinct_colors(bubble_colors):
-
-    stack_colors = Stack.get_stack_colors(Stack.stack,bubble_colors)
+    stack_colors = Stack.get_stack_colors(Stack.stack, bubble_colors)
     grid_colors = BubblesGrid.get_grid_colors(bubble_colors)
     pass
-    # for color in bubble_colors:
-    #     for i in range(len(grid_colors)):
-    #         if grid_colors[i][color] in bubble_colors == False:
-    #             bubble_colors.remove(color)
-
-    # for color in bubble_colors:
-    #     for row_s in range(len(stack_colors)):
-    #         if stack_colors[row_s] == color:
-    #             for row_g in range(len(grid_colors)):
-    #                 if grid_colors[row_g] == color:
-    #                     bubble_colors.remove(color)
 
 
 def is_lose():
     row_num = len(BubblesGrid.bubbles_grid)
-    if row_num > consts.NUM_OF_LINES_LOSE+1:
+    if row_num > consts.NUM_OF_LINES_LOSE + 1:
         return True
     return False
 
@@ -157,6 +145,7 @@ def is_win():
     if row_num == 1:
         return True
     return False
+
 
 # -----------------------------------------------------------------------------
 # ------------------------------your code end----------------------------------
