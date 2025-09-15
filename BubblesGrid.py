@@ -202,3 +202,14 @@ def find_bubble_location_in_grid(bullet_bubble):
                     closest_distance = distance
                     closest_location = (row, col)
     return closest_location
+
+
+def get_grid_colors(bubble_colors_list):
+    grid_color =[]
+    for bubble in range(len(bubble_colors_list)):
+        for color in range(len(bubbles_grid)):
+            b=bubbles_grid[color][bubble]
+            if bubble_colors_list[bubble] == b['color']:
+                grid_color.append(b['color'])
+    grid_color = list(dict.fromkeys(grid_color))
+    return grid_color

@@ -1,4 +1,5 @@
 import Bubble
+import BubblesGrid
 import consts
 import random
 import Screen
@@ -43,3 +44,13 @@ def draw():
 # -----------------------------------------------------------------------------
 # ---------------------------------your code-----------------------------------
 # -----------------------------------------------------------------------------
+
+
+def get_stack_colors(c_stack,bubble_colors_list):
+    stack_colors = []
+
+    for bubble in range(len(c_stack)):
+        for color in range(len(bubble_colors_list)):
+            if c_stack[bubble]["color"] == bubble_colors_list[color]:
+                stack_colors.append(c_stack[bubble]["color"])
+    return stack_colors

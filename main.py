@@ -128,19 +128,35 @@ def remove_isolated_bubbles():
 # -----------------------------------------------------------------------------
 
 def remove_extinct_colors(bubble_colors):
-    # TODO: implement
+
+    stack_colors = Stack.get_stack_colors(Stack.stack,bubble_colors)
+    grid_colors = BubblesGrid.get_grid_colors(bubble_colors)
     pass
+    # for color in bubble_colors:
+    #     for i in range(len(grid_colors)):
+    #         if grid_colors[i][color] in bubble_colors == False:
+    #             bubble_colors.remove(color)
+
+    # for color in bubble_colors:
+    #     for row_s in range(len(stack_colors)):
+    #         if stack_colors[row_s] == color:
+    #             for row_g in range(len(grid_colors)):
+    #                 if grid_colors[row_g] == color:
+    #                     bubble_colors.remove(color)
 
 
 def is_lose():
-    # TODO: implement
-    pass
+    row_num = len(BubblesGrid.bubbles_grid)
+    if row_num > consts.NUM_OF_LINES_LOSE+1:
+        return True
+    return False
 
 
 def is_win():
-    # TODO: implement
-    pass
-
+    row_num = len(BubblesGrid.bubbles_grid)
+    if row_num == 1:
+        return True
+    return False
 
 # -----------------------------------------------------------------------------
 # ------------------------------your code end----------------------------------
